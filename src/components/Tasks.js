@@ -1,28 +1,19 @@
-import {useState} from 'react';
+import PropTypes from 'prop-types';
+import Task from "./Task";
 
 
-
-export default function Tasks() {
-
-  const [tasks, setTasks] = useState([
-    {
-      "id": 1,
-      "text": "Doctors Appointment",
-      "day": "Feb 5th at 2:30pm",
-      "reminder": true
-    },
-    {
-      "id": 2,
-      "text": "Meeting at School",
-      "day": "Feb 6th at 1:30pm",
-      "reminder": true
-    }
-  ])
-
+export default function Tasks({tasks}) {
 
   return (
     <>
-      {tasks.map(el => (<h1 key={el.id}>{el.text}</h1>))}
+      {tasks.map(el => (
+        <Task key={el.id} task={el}/>
+      ))}
     </>
   );
 };
+
+
+Tasks.propTypes = {
+  tasks: PropTypes.array
+}

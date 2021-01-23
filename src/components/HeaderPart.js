@@ -9,7 +9,7 @@ export default function HeaderPart() {
 
   return (
     <header className='header'>
-      <h2>Header Part</h2>
+      <h2>Tasks Tracker</h2>
       <Button color='green' text="Add" onClick={onClick}/>
     </header>
   )
