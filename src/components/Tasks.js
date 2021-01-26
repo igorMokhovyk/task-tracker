@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import Task from "./Task";
+import {connect} from "react-redux";
 
 
-export default function Tasks({tasks}) {
+
+function Tasks(props) {
 
   return (
     <>
-      {tasks.map(el => (
+      {props.tasks.map(el => (
         <Task key={el.id} task={el}/>
       ))}
     </>
@@ -17,3 +19,14 @@ export default function Tasks({tasks}) {
 Tasks.propTypes = {
   tasks: PropTypes.array
 }
+
+
+const mapStateToProps = (state) => ({
+  tasks: state.tasks
+});
+
+const mapDispatchToProps = (dispatch) => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tasks);

@@ -1,4 +1,4 @@
-import Button from "./button";
+import Button from '@material-ui/core/Button'
 
 export default function HeaderPart() {
 
@@ -10,7 +10,7 @@ export default function HeaderPart() {
   return (
     <header className='header'>
       <h2>Tasks Tracker</h2>
-      <Button color='green' text="Add" onClick={onClick}/>
+      <Button variant="contained" color="primary" onClick={onClick}>Add</Button>
     </header>
   )
 };
