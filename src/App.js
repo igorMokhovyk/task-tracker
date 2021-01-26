@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HeaderPart from "./components/HeaderPart";
 import Tasks from "./components/Tasks";
 import { connect } from 'react-redux';
@@ -12,11 +12,13 @@ function App(props) {
     props.getTasks()
   }, [])
 
+  const [addButton, setAddButton] = useState(false);
+
+
   return (
     <div className="container">
-
-      <HeaderPart/>
-      <AddTask/>
+        <HeaderPart addButtonHandler={() => setAddButton(!addButton)} showAddOrClose={addButton}/>
+      {addButton && <AddTask/>}
       {props.tasks.length > 0 ? <Tasks /> : "Create new Task"}
     </div>
   );

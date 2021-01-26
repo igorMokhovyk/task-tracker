@@ -36,3 +36,14 @@ export const deleteTask = (id) => {
       .catch(err => console.log(err))
   }
 }
+
+export const toggleTaskReminder = (id, reminder) => {
+  return (dispatch) => {
+    axios.patch(`http://localhost:5000/tasks/${id}`, {reminder: !reminder})
+      .then(()=> {
+
+        dispatch(getTasks())
+      })
+      .catch(err => console.log(err))
+  }
+}

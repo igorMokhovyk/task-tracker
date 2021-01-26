@@ -4,7 +4,6 @@ const initialState = {
   ]
 };
 
-console.log(initialState)
 
 
 const tasks = (state = initialState, action) => {
@@ -22,19 +21,6 @@ const tasks = (state = initialState, action) => {
       return {
         ...state,
         tasks: taskEdit
-      };
-
-    case 'NEW_TASK':
-      return {
-        ...state,
-        tasks: [...state.tasks, {id: action.payload.id, text: action.payload.text, day: action.payload.date, reminder: action.payload.reminder}]
-      };
-
-    case 'DELETE_TASK':
-      const newTasks = state.tasks.filter(el => el.id !== action.payload)
-      return {
-        ...state,
-        tasks: newTasks
       };
 
 

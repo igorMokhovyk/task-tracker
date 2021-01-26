@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {FaTimes} from "react-icons/fa";
 import {connect} from "react-redux";
-import {deleteTask} from "../Redux/actions";
+import {deleteTask, toggleTaskReminder} from "../Redux/actions";
 
 
 
@@ -16,7 +16,7 @@ const deleteHandler = () => {
   return (
     <div
       className={`task ${task.reminder ? 'reminder' : ''}`}
-      onDoubleClick={() => toggleReminder(task.id)}>
+      onDoubleClick={() => toggleReminder(task.id, task.reminder)}>
 
       <h3>
         {task.text}
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
   deleteTask: (id) => dispatch(deleteTask(id)),
-  toggleReminder: (id) => dispatch({type: "TOGGLE_TASK", payload: id})
+  toggleReminder: (id, reminder) => dispatch(toggleTaskReminder(id, reminder))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Task);
