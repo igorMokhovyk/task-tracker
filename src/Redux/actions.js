@@ -18,7 +18,7 @@ export const getTasks = () => {
 export const newTask = (task) => {
   return (dispatch) => {
     axios.post(`http://localhost:5000/tasks`,
-      {id: task.id, text: task.text, day: task.date, reminder: task.reminder})
+      {id: task.id, text: task.text, description: task.description, day: task.date, reminder: task.reminder})
       .then(res => {
         dispatch(getTasks())
       })

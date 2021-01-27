@@ -5,6 +5,7 @@ import {deleteTask, toggleTaskReminder} from "../Redux/actions";
 
 
 
+
 function Task({task, deleteTask, toggleReminder}) {
 
   console.log(task.id)
@@ -21,7 +22,11 @@ const deleteHandler = () => {
       <h3>
         {task.text}
         <FaTimes color='red' cursor='pointer' onClick={deleteHandler}/>
+
       </h3>
+      <h4>
+        {task.description}
+      </h4>
       <p>
         {task.day}
       </p>
